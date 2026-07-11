@@ -25,11 +25,8 @@ Reusable UI lives in `src/components`, page routes in `src/pages`, site shells i
 
 ## GitHub Pages deployment
 
-1. Replace `REPOSITORY-NAME` in `.github/workflows/deploy.yml` with the exact repository name, preserving both slashes (example: `/brain-health-project/`). `USERNAME` does not appear in source code; it is determined automatically by the repository owner and produces `https://USERNAME.github.io/REPOSITORY-NAME/`.
-2. Create a GitHub repository with that name and set its default branch to `main`.
-3. In repository **Settings → Pages → Build and deployment**, select **GitHub Actions**.
-4. Push only when ready. The workflow type-checks, builds, uploads `dist`, and deploys through the official Pages actions.
+1. Create a GitHub repository and set its default branch to `main`.
+2. In repository **Settings → Pages → Build and deployment**, select **GitHub Actions**.
+3. Push only when ready. The workflow derives the Vite base path from the repository name, type-checks, builds, uploads `dist`, and deploys through the official Pages actions.
 
-`HashRouter` keeps routes after `/#/`, so refreshes work reliably on GitHub Pages. Vite's production base path is set by `VITE_BASE_PATH` in the workflow; local development uses `/`.
-
-The site uses `HashRouter`, so client-side routes survive GitHub Pages refreshes. Nothing publishes or pushes automatically from the local machine.
+`HashRouter` keeps routes after `/#/`, so client-side routes survive GitHub Pages refreshes. Vite's production base path is set automatically by the workflow; local development uses `/`. Nothing publishes or pushes automatically from the local machine.
