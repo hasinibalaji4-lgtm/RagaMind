@@ -17,5 +17,13 @@
   }
   body { @apply bg-ivory font-sans text-teal-950 antialiased; }
   :focus-visible { @apply outline-none ring-4 ring-teal-700 ring-offset-2 ring-offset-ivory; }
+  main :is(h1, h2)[tabindex='-1']:focus-visible {
+    outline: none;
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-color: rgb(var(--color-gold-700));
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.18em;
+  }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }

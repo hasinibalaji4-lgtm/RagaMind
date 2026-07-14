@@ -4,6 +4,7 @@ import { FounderDetail } from '../components/about/FounderDetail'
 import { JourneyTimeline } from '../components/about/JourneyTimeline'
 import { PrincipleCard } from '../components/about/PrincipleCard'
 import { PageContainer } from '../components/PageContainer'
+import { PageContentsLayout } from '../components/PageContentsLayout'
 import { PageMeta } from '../components/PageMeta'
 import { SectionHeading } from '../components/SectionHeading'
 
@@ -29,6 +30,15 @@ const founderDetails = [
   { title: 'Future vision', placeholder: '[FOUNDER-WRITTEN VISION NEEDED — describe the intended educational and community direction.]' },
 ]
 
+const pageContents = [
+  { id: 'why-this-project-exists', label: 'Why This Project Exists' },
+  { id: 'my-journey', label: 'My Journey' },
+  { id: 'guiding-principles', label: 'Guiding Principles' },
+  { id: 'project-values', label: 'Project Values' },
+  { id: 'meet-the-founder', label: 'Meet the Founder' },
+  { id: 'future-of-ragamind', label: 'The Future of RagaMind' },
+]
+
 export function About() {
   return <>
     <PageMeta title="About RagaMind" description="Learn about the purpose, journey, principles, and future direction of RagaMind." />
@@ -37,7 +47,7 @@ export function About() {
       <PageContainer className="grid items-end gap-12 lg:grid-cols-[1.25fr_.75fr] lg:gap-20">
         <div>
           <p className="text-sm font-bold uppercase tracking-[.22em] text-gold-700">About the project</p>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl font-bold leading-tight sm:text-7xl">About RagaMind</h1>
+          <h1 className="mt-6 max-w-4xl font-display text-5xl font-bold leading-tight sm:text-7xl" tabIndex={-1}>About RagaMind</h1>
           <p className="mt-7 max-w-3xl text-xl leading-8 text-teal-800 sm:text-2xl sm:leading-9">An educational initiative exploring the intersection of Carnatic music, neuroscience, and healthy aging.</p>
         </div>
         <div className="min-h-52 border border-dashed border-teal-900/25 bg-sage-100/45 p-6 text-sm leading-6 text-teal-700">
@@ -47,11 +57,13 @@ export function About() {
       </PageContainer>
     </section>
 
+    <PageContentsLayout items={pageContents}>
+
     <section className="py-20 sm:py-28">
       <PageContainer className="grid gap-10 lg:grid-cols-[.55fr_1.45fr] lg:gap-20">
         <p className="text-sm font-bold uppercase tracking-[.22em] text-gold-700">Why RagaMind?</p>
         <div>
-          <SectionHeading title="Why This Project Exists" />
+          <SectionHeading id="why-this-project-exists" title="Why This Project Exists" />
           <div className="mt-7 max-w-3xl space-y-5 text-lg leading-8 text-teal-800">
             <p>[FOUNDER-WRITTEN MISSION NEEDED] Describe the curiosity about the brain and long-standing interest in Carnatic music that shaped the project.</p>
             <p>[FOUNDER-WRITTEN MISSION NEEDED] Explain the desire to bridge scientific inquiry and culture, make research more accessible, and create a useful educational resource for caregivers and communities.</p>
@@ -62,21 +74,21 @@ export function About() {
 
     <section className="border-y border-teal-900/10 bg-white/35 py-20 sm:py-28">
       <PageContainer>
-        <SectionHeading title="My Journey" subtitle="A future founder-reviewed account of the experiences and questions that led to RagaMind." />
+        <SectionHeading id="my-journey" title="My Journey" subtitle="A future founder-reviewed account of the experiences and questions that led to RagaMind." />
         <JourneyTimeline />
       </PageContainer>
     </section>
 
     <section className="py-20 sm:py-28">
       <PageContainer>
-        <SectionHeading title="Guiding Principles" subtitle="The standards intended to guide how RagaMind learns, communicates, and grows." />
+        <SectionHeading id="guiding-principles" title="Guiding Principles" subtitle="The standards intended to guide how RagaMind learns, communicates, and grows." />
         <div className="mt-12 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4">{principles.map((principle) => <PrincipleCard key={principle.title} {...principle} />)}</div>
       </PageContainer>
     </section>
 
     <section className="bg-sage-100/65 py-20 sm:py-24">
       <PageContainer>
-        <SectionHeading title="Project Values" />
+        <SectionHeading id="project-values" title="Project Values" />
         <ul className="mt-10 grid gap-px overflow-hidden border border-teal-900/15 bg-teal-900/15 sm:grid-cols-2 lg:grid-cols-5">{values.map(({ title, icon: Icon }) => <li className="flex min-h-40 flex-col justify-between bg-ivory p-6" key={title}><Icon className="text-gold-700" aria-hidden="true" /><span className="mt-8 font-display text-xl font-bold">{title}</span></li>)}</ul>
       </PageContainer>
     </section>
@@ -85,7 +97,7 @@ export function About() {
       <PageContainer className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
         <div>
           <p className="text-sm font-bold uppercase tracking-[.22em] text-gold-700">Founder profile</p>
-          <h2 className="mt-5 font-display text-4xl font-bold sm:text-5xl">Meet the Founder</h2>
+          <h2 className="mt-5 scroll-mt-28 font-display text-4xl font-bold lg:scroll-mt-52 sm:text-5xl" id="meet-the-founder" tabIndex={-1}>Meet the Founder</h2>
           <p className="mt-6 text-lg leading-8 text-teal-800">This section is reserved for a founder-reviewed introduction. No biography or personal narrative has been inferred.</p>
           <div className="mt-8 min-h-48 border border-dashed border-teal-900/25 p-6 text-sm leading-6 text-teal-700">[FOUNDER PORTRAIT OR ILLUSTRATION PLACEHOLDER — add consented media and descriptive alternative text.]</div>
         </div>
@@ -97,7 +109,7 @@ export function About() {
       <PageContainer className="grid gap-10 lg:grid-cols-[.65fr_1.35fr] lg:gap-20">
         <p className="text-sm font-bold uppercase tracking-[.22em] text-gold-700">Looking ahead</p>
         <div>
-          <SectionHeading title="The Future of RagaMind" />
+          <SectionHeading id="future-of-ragamind" title="The Future of RagaMind" />
           <p className="mt-7 max-w-3xl text-lg leading-8 text-teal-800">RagaMind is intended to continue through expert interviews, evidence reviews, Carnatic recordings, senior living pilots, and educational outreach. [FUTURE-PLAN DETAILS NEEDED — add timelines or commitments only after they are approved.]</p>
         </div>
       </PageContainer>
@@ -109,5 +121,6 @@ export function About() {
         <Link className="mt-9 inline-flex items-center justify-center rounded-full bg-ivory px-6 py-3 font-semibold text-teal-950 transition-colors hover:bg-sage-100" to="/evidence">Explore the Evidence</Link>
       </PageContainer>
     </section>
+    </PageContentsLayout>
   </>
 }
