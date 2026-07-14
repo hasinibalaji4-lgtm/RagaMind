@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-teal-950: 9 47 48;
+    --color-teal-900: 18 63 63;
+    --color-teal-800: 24 87 86;
+    --color-teal-700: 36 109 105;
+    --color-ivory: 251 247 237;
+    --color-gold: 179 138 62;
+    --color-sage-100: 232 238 230;
+    --color-sage-300: 185 201 180;
+    --color-sage-700: 80 106 81;
+  }
   body { @apply bg-ivory font-sans text-teal-950 antialiased; }
   :focus-visible { @apply outline-none ring-4 ring-gold ring-offset-2; }
 }
