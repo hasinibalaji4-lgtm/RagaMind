@@ -10,7 +10,10 @@ export default {
         700: 'rgb(var(--color-teal-700) / <alpha-value>)',
       },
       ivory: 'rgb(var(--color-ivory) / <alpha-value>)',
-      gold: 'rgb(var(--color-gold) / <alpha-value>)',
+      gold: {
+        DEFAULT: 'rgb(var(--color-gold) / <alpha-value>)',
+        700: 'rgb(var(--color-gold-700) / <alpha-value>)',
+      },
       sage: {
         100: 'rgb(var(--color-sage-100) / <alpha-value>)',
         300: 'rgb(var(--color-sage-300) / <alpha-value>)',

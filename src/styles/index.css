@@ -10,11 +10,12 @@
     --color-teal-700: 36 109 105;
     --color-ivory: 251 247 237;
     --color-gold: 179 138 62;
+    --color-gold-700: 138 101 29;
     --color-sage-100: 232 238 230;
     --color-sage-300: 185 201 180;
     --color-sage-700: 80 106 81;
   }
   body { @apply bg-ivory font-sans text-teal-950 antialiased; }
-  :focus-visible { @apply outline-none ring-4 ring-gold ring-offset-2; }
+  :focus-visible { @apply outline-none ring-4 ring-teal-700 ring-offset-2 ring-offset-ivory; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }

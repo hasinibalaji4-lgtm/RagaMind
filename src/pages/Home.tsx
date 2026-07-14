@@ -1,7 +1,7 @@
 import { ArrowRight, Brain, MessageCircleMore, Music2 } from 'lucide-react'
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { PageContainer } from '../components/PageContainer'
+import { PageMeta } from '../components/PageMeta'
 import { SectionHeading } from '../components/SectionHeading'
 import { EvidencePreview } from '../components/home/EvidencePreview'
 import { ExpertPreviewCard } from '../components/home/ExpertPreviewCard'
@@ -13,17 +13,12 @@ const primaryButton = 'inline-flex items-center justify-center gap-2 rounded-ful
 const secondaryButton = 'inline-flex items-center justify-center gap-2 rounded-full border border-teal-900 px-6 py-3 font-semibold text-teal-900 transition-colors hover:bg-sage-100'
 
 export function Home() {
-  useEffect(() => {
-    document.title = 'RagaMind | Where Ancient Music Meets Modern Neuroscience'
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]')
-    if (description) description.content = 'RagaMind is an evidence-informed educational initiative exploring Carnatic music, neuroscience, brain health, and healthy aging.'
-  }, [])
-
   return <>
+    <PageMeta title="Where Ancient Music Meets Modern Neuroscience" description="RagaMind is an evidence-informed educational initiative exploring Carnatic music, neuroscience, brain health, and healthy aging." />
     <section className="overflow-hidden border-b border-teal-900/10 py-16 sm:py-24 lg:py-28">
       <PageContainer className="grid items-center gap-12 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[.22em] text-gold">Where Ancient Music Meets Modern Neuroscience</p>
+          <p className="text-sm font-bold uppercase tracking-[.22em] text-gold-700">Where Ancient Music Meets Modern Neuroscience</p>
           <h1 className="mt-6 font-display text-6xl font-bold leading-[.95] tracking-tight text-teal-950 sm:text-7xl lg:text-8xl">RagaMind</h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-teal-800 sm:text-xl">An evidence-informed educational initiative exploring how Carnatic music, neuroscience, expert insight, and community engagement can support conversations about brain health and healthy aging.</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -79,7 +74,7 @@ export function Home() {
 
     <section className="py-20 sm:py-28">
       <PageContainer className="grid gap-10 lg:grid-cols-[.65fr_1.35fr] lg:gap-20">
-        <p className="text-sm font-bold uppercase tracking-[.22em] text-gold">Founder perspective</p>
+        <p className="text-sm font-bold uppercase tracking-[.22em] text-gold-700">Founder perspective</p>
         <div>
           <SectionHeading title="Why RagaMind Began" />
           <p className="mt-6 max-w-3xl text-lg leading-8 text-teal-800">[FOUNDER STORY PLACEHOLDER] RagaMind grew from more than thirteen years of Carnatic vocal training, an interest in neuroscience and medicine, the experience of chromesthesia, and a desire to translate research into an accessible community resource.</p>
