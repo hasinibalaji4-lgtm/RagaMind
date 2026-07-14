@@ -2,21 +2,9 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Expert } from '../../types/expert'
 import { PageContainer } from '../PageContainer'
-import { PageContentsLayout } from '../PageContentsLayout'
 import { PageMeta } from '../PageMeta'
 import { SectionHeading } from '../SectionHeading'
 import { ExpertPortrait } from './ExpertPortrait'
-
-const profileContents = [
-  { id: 'expert-profile-overview', label: 'Overview' },
-  { id: 'perspective-matters', label: 'Why This Perspective Matters' },
-  { id: 'conversation-themes', label: 'Key Themes' },
-  { id: 'approved-insights', label: 'Approved Insights' },
-  { id: 'evidence-connection', label: 'Connection to Evidence' },
-  { id: 'remaining-questions', label: 'Questions That Remain' },
-  { id: 'interview-transcript', label: 'Interview or Transcript' },
-  { id: 'profile-publication', label: 'Publication and Review' },
-]
 
 export function ExpertProfile({ expert }: { expert: Expert }) {
   const approvedQuotes = expert.interview.approvedQuotes.filter((quote) => quote.status === 'approved')
@@ -37,7 +25,6 @@ export function ExpertProfile({ expert }: { expert: Expert }) {
       </PageContainer>
     </header>
 
-    <PageContentsLayout items={profileContents}>
       <section className="py-20 sm:py-28"><PageContainer><SectionHeading id="perspective-matters" title="Why This Perspective Matters" /><p className="mt-7 max-w-4xl text-lg leading-8 text-teal-800">{expert.whyPerspectiveMatters}</p></PageContainer></section>
 
       <section className="border-y border-teal-900/10 bg-white/35 py-20 sm:py-24"><PageContainer><SectionHeading id="conversation-themes" title="Key Themes from the Conversation" /><div className="mt-10">{expert.interview.keyThemes.length ? <ul className="grid gap-4 sm:grid-cols-2">{expert.interview.keyThemes.map((theme) => <li className="border border-teal-900/15 bg-ivory p-5" key={theme}>{theme}</li>)}</ul> : <p className="border border-dashed border-teal-900/30 p-6 text-teal-700">[APPROVED KEY THEMES NEEDED AFTER INTERVIEW REVIEW]</p>}</div></PageContainer></section>
@@ -51,6 +38,5 @@ export function ExpertProfile({ expert }: { expert: Expert }) {
       <section className="border-y border-teal-900/10 bg-white/35 py-20 sm:py-24"><PageContainer><SectionHeading id="interview-transcript" title="Full Interview or Edited Transcript" subtitle="Raw notes, contact details, scheduling information, and unpublished transcripts are never displayed." />{expert.interview.transcriptSections.length ? <div className="mt-10 space-y-10">{expert.interview.transcriptSections.map((section) => <section key={section.heading}><h3 className="font-display text-2xl font-bold">{section.heading}</h3><p className="mt-4 max-w-4xl leading-8 text-teal-800">{section.content}</p></section>)}</div> : <div className="mt-8 border border-dashed border-teal-900/30 bg-ivory p-6 text-teal-700">[NO TRANSCRIPT PUBLISHED — EDITED SECTIONS REQUIRE REVIEW AND APPROVAL]</div>}</PageContainer></section>
 
       <section className="py-20 sm:py-28"><PageContainer><SectionHeading id="profile-publication" title="References, Publication, and Review" /><div className="mt-10 grid gap-8 lg:grid-cols-2"><article><h3 className="font-display text-2xl font-bold">Related resources</h3><ul className="mt-5 space-y-3">{expert.references.map((reference, index) => <li className="text-teal-700" key={index}>{reference}</li>)}</ul></article><article><h3 className="font-display text-2xl font-bold">Permission status</h3><dl className="mt-5 space-y-3">{Object.entries(expert.permissions).map(([field, status]) => <div className="flex justify-between gap-4 border-t border-teal-900/15 pt-3" key={field}><dt className="font-bold capitalize">{field}</dt><dd className="text-right text-teal-700">{status}</dd></div>)}</dl><p className="mt-5"><strong>Last reviewed:</strong> {expert.lastReviewed}</p></article></div><aside className="mt-12 border border-teal-900/20 bg-sage-100/65 p-6"><h3 className="font-display text-2xl font-bold">Educational perspective disclaimer</h3><p className="mt-4 max-w-4xl leading-7 text-teal-800">Expert interviews provide educational and professional perspectives. They do not constitute medical advice, institutional endorsement, or proof that a particular music-based approach is clinically effective.</p></aside></PageContainer></section>
-    </PageContentsLayout>
   </>
 }

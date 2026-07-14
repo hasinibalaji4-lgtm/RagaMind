@@ -1,4 +1,4 @@
-import type { EvidenceLevel, ResearchQuestion, ResearchSource, ResearchTheme, ResearchThemeContent } from '../types/evidence'
+import type { EvidenceLevel, EvidenceSummary, ResearchSource, ResearchTheme, ResearchThemeContent } from '../types/evidence'
 
 const placeholder = (label: string) => `[VERIFIED RESEARCH ${label.toUpperCase()} NEEDED]`
 
@@ -9,52 +9,20 @@ export const evidenceLegend: { level: EvidenceLevel; description: string }[] = [
   { level: 'Limited', description: 'Reserved for areas with too little evidence for firm conclusions.' },
 ]
 
-const questions = [
-  ['mood', 'Can music support mood and emotional well-being?', 'Strong'],
-  ['depression', 'Can music reduce depressive symptoms in people with dementia?', 'Moderate to Strong'],
-  ['cognition', 'Can music support cognition?', 'Emerging to Moderate'],
-  ['participation', 'Does active participation matter?', 'Emerging to Moderate'],
-  ['brain', 'Why does music affect the brain?', 'Strong theoretical support'],
-  ['familiarity', 'Does cultural familiarity and personalization matter?', 'Strong practical support'],
-  ['carnatic', 'What evidence exists specifically for Carnatic music?', 'Emerging'],
-  ['programs', 'How should music-based programs be designed?', 'Limited'],
-] as const
-
-export const researchQuestions: ResearchQuestion[] = questions.map(([id, question, evidenceLevel]) => ({
-  id,
-  question,
-  evidenceLevel,
-  answer: placeholder('concise answer'),
-  findings: placeholder('synthesis'),
-  limitations: placeholder('limitations'),
-  relevance: placeholder('RagaMind relevance'),
-  citations: '[VERIFIED CITATIONS NEEDED]',
-}))
-
-export const evidenceSnapshot: { topic: string; level: EvidenceLevel; explanation: string }[] = [
-  ['Mood and emotional well-being', 'Strong'],
-  ['Depressive symptoms', 'Moderate to Strong'],
-  ['Behavioral symptoms', 'Moderate'],
-  ['Cognition', 'Emerging to Moderate'],
-  ['Active participation', 'Emerging to Moderate'],
-  ['Music and neural reward systems', 'Strong theoretical support'],
-  ['Cultural familiarity and personalization', 'Strong practical support'],
-  ['Carnatic-specific brain-health research', 'Emerging'],
-].map(([topic, level]) => ({ topic, level: level as EvidenceLevel, explanation: placeholder('explanation') }))
+export const evidenceAtGlance: EvidenceSummary[] = [
+  ['mood', 'Mood and emotional well-being', 'Strong'],
+  ['depression', 'Depressive symptoms', 'Moderate to Strong'],
+  ['cognition', 'Cognition and active participation', 'Emerging to Moderate'],
+  ['brain', 'Music and brain systems', 'Strong theoretical support'],
+  ['familiarity', 'Personalization and cultural familiarity', 'Strong practical support'],
+  ['carnatic', 'Carnatic-specific evidence', 'Emerging'],
+].map(([id, topic, evidenceLevel]) => ({ id, topic, evidenceLevel: evidenceLevel as EvidenceLevel, synthesis: placeholder('synthesis'), limitation: placeholder('important limitation') }))
 
 export const researchThemes: ResearchThemeContent[] = [
-  { id: 'therapy', title: 'Music Therapy and Dementia', sourceCount: 5 },
-  { id: 'brain', title: 'Music and the Brain', sourceCount: 4 },
-  { id: 'carnatic', title: 'Carnatic Music and Musicology', sourceCount: 5 },
-].map(({ id, title, sourceCount }) => ({
-  id, title, sourceCount,
-  introduction: placeholder('plain-language introduction'),
-  findings: placeholder('key findings'),
-  limitations: placeholder('limitations'),
-  questions: placeholder('unanswered questions'),
-  relevance: placeholder('RagaMind relevance'),
-  references: '[VERIFIED REFERENCES NEEDED]',
-}))
+  { id: 'therapy', title: 'Music Therapy and Dementia', relatedTheme: 'Music Therapy and Dementia' },
+  { id: 'brain', title: 'Music and the Brain', relatedTheme: 'Music and Neuroscience' },
+  { id: 'carnatic', title: 'Carnatic Music and Musicology', relatedTheme: 'Carnatic Music and Musicology' },
+].map(({ id, title, relatedTheme }) => ({ id, title, relatedTheme: relatedTheme as ResearchTheme, summary: placeholder('plain-language summary'), takeaways: [placeholder('key takeaway')], limitations: [placeholder('theme limitation')] }))
 
 export const researchThemeOptions: ResearchTheme[] = [
   'Music Therapy and Dementia',

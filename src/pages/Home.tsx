@@ -1,7 +1,6 @@
 import { ArrowRight, Brain, MessageCircleMore, Music2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { PageContainer } from '../components/PageContainer'
-import { PageContentsLayout } from '../components/PageContentsLayout'
 import { PageMeta } from '../components/PageMeta'
 import { SectionHeading } from '../components/SectionHeading'
 import { EvidencePreview } from '../components/home/EvidencePreview'
@@ -12,15 +11,6 @@ import { JourneyTimeline } from '../components/home/JourneyTimeline'
 
 const primaryButton = 'inline-flex items-center justify-center gap-2 rounded-full bg-teal-900 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-800'
 const secondaryButton = 'inline-flex items-center justify-center gap-2 rounded-full border border-teal-900 px-6 py-3 font-semibold text-teal-900 transition-colors hover:bg-sage-100'
-
-const pageContents = [
-  { id: 'music-memory-meaning', label: 'Music, Memory, and Meaning' },
-  { id: 'evidence-preview', label: 'What the Evidence Suggests' },
-  { id: 'expert-perspectives-preview', label: 'Learning Across Disciplines' },
-  { id: 'project-journey', label: 'From Research to Community' },
-  { id: 'founder-story', label: 'Why RagaMind Began' },
-  { id: 'final-invitation', label: 'Explore Music and Mind' },
-]
 
 export function Home() {
   return <>
@@ -39,8 +29,6 @@ export function Home() {
         <HeroArtwork />
       </PageContainer>
     </section>
-
-    <PageContentsLayout items={pageContents}>
 
     <section className="py-20 sm:py-28">
       <PageContainer>
@@ -104,6 +92,5 @@ export function Home() {
         </div>
       </PageContainer>
     </section>
-    </PageContentsLayout>
   </>
 }

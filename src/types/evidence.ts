@@ -29,25 +29,19 @@ export interface ResearchSource {
   isPlaceholder: true
 }
 
-export interface ResearchQuestion {
+export interface EvidenceSummary {
   id: string
-  question: string
-  answer: string
+  topic: string
   evidenceLevel: EvidenceLevel
-  findings: string
-  limitations: string
-  relevance: string
-  citations: string
+  synthesis: string
+  limitation: string
 }
 
 export interface ResearchThemeContent {
   id: string
   title: string
-  sourceCount: number
-  introduction: string
-  findings: string
-  limitations: string
-  questions: string
-  relevance: string
-  references: string
+  summary: string
+  takeaways: string[]
+  limitations: string[]
+  relatedTheme: ResearchTheme
 }

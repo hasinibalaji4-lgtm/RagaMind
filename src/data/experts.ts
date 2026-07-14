@@ -20,7 +20,7 @@ const createPlaceholderExpert = (id: string, slug: string, name: string): Expert
   interview: {
     date: '[INTERVIEW DATE NOT PUBLISHED]',
     format: '[INTERVIEW FORMAT NOT PUBLISHED]',
-    status: 'Status not published',
+    status: 'Confirmed',
     keyThemes: [],
     summary: '[INTERVIEW SUMMARY COMING SOON AFTER REVIEW AND APPROVAL]',
     approvedQuotes: [],
@@ -43,13 +43,13 @@ export const experts: Expert[] = [
   createPlaceholderExpert('expert-2', 'kayci-vickers', 'Dr. Kayci Vickers'),
 ]
 
-export const futurePerspectives: { label: string; status: InterviewStatus }[] = [
-  { label: 'Music therapist', status: 'Seeking perspective' },
-  { label: 'Senior living activities director', status: 'Seeking perspective' },
-  { label: 'Carnatic musician or teacher', status: 'Seeking perspective' },
-  { label: 'Geriatrician', status: 'Seeking perspective' },
-  { label: 'Caregiver', status: 'Seeking perspective' },
-  { label: 'Older adult listener', status: 'Seeking perspective' },
+export const perspectivesBeingGathered: { discipline: string; whyItMatters: string; status: InterviewStatus }[] = [
+  { discipline: 'Neuroscience and Cognitive Aging', whyItMatters: 'Helps place questions about music, cognition, and aging within appropriate scientific limits.', status: 'Seeking perspective' },
+  { discipline: 'Music Therapy', whyItMatters: 'Helps distinguish credentialed practice from recreational and educational music activities.', status: 'Seeking perspective' },
+  { discipline: 'Carnatic Music', whyItMatters: 'Helps preserve cultural, musical, and teaching context.', status: 'Seeking perspective' },
+  { discipline: 'Senior Living', whyItMatters: 'Helps identify practical needs for accessible community programming.', status: 'Seeking perspective' },
+  { discipline: 'Geriatrics', whyItMatters: 'Helps keep healthy-aging communication cautious and clinically appropriate.', status: 'Seeking perspective' },
+  { discipline: 'Caregivers and Listeners', whyItMatters: 'Helps include lived experience, preferences, and practical questions.', status: 'Seeking perspective' },
 ]
 
 export const sharedInterviewQuestions = [

@@ -2,20 +2,10 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Raga } from '../../types/raga'
 import { PageContainer } from '../PageContainer'
-import { PageContentsLayout } from '../PageContentsLayout'
 import { PageMeta } from '../PageMeta'
 import { SectionHeading } from '../SectionHeading'
 import { RagaAudio } from './RagaAudio'
 import { RagaVisual } from './RagaVisual'
-
-const profileContents = [
-  { id: 'profile-overview', label: 'Overview' },
-  { id: 'musical-context', label: 'Musical and Traditional Context' },
-  { id: 'profile-scientific-context', label: 'Scientific Context' },
-  { id: 'listening-experience', label: 'Listening Experience' },
-  { id: 'private-reflection', label: 'Private Reflection' },
-  { id: 'profile-transparency', label: 'Transparency' },
-]
 
 export function RagaProfile({ raga, index }: { raga: Raga; index: number }) {
   return <>
@@ -33,7 +23,6 @@ export function RagaProfile({ raga, index }: { raga: Raga; index: number }) {
       </PageContainer>
     </header>
 
-    <PageContentsLayout items={profileContents}>
       <section className="py-20 sm:py-28">
         <PageContainer>
           <SectionHeading id="musical-context" title="Musical and Traditional Context" subtitle="Traditional musical knowledge and teacher insight are presented separately from scientific evidence." />
@@ -83,6 +72,5 @@ export function RagaProfile({ raga, index }: { raga: Raga; index: number }) {
           <aside className="mt-12 border border-teal-900/20 bg-sage-100/65 p-6 sm:p-8"><h3 className="font-display text-2xl font-bold">Educational disclaimer</h3><p className="mt-4 max-w-4xl leading-7 text-teal-800">RagaMind presents traditional musical perspectives, teacher-informed commentary, and general research context for educational purposes. Individual responses to music vary. This resource is not medical advice, diagnosis, or treatment.</p></aside>
         </PageContainer>
       </section>
-    </PageContentsLayout>
   </>
 }

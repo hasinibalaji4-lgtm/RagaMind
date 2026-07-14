@@ -1,4 +1,3 @@
-import { ArrowUp } from 'lucide-react'
 import { useEffect, useState, type MouseEvent } from 'react'
 
 function prefersReducedMotion() {
@@ -6,17 +5,29 @@ function prefersReducedMotion() {
 }
 
 export function BackToTop() {
-  const [visible, setVisible] = useState(false)
+  const [pastFirstViewport, setPastFirstViewport] = useState(false)
+  const [footerVisible, setFooterVisible] = useState(false)
 
   useEffect(() => {
-    const heading = document.querySelector('main h1')
-    if (!heading) return
-    const observer = new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting), { rootMargin: '-80px 0px 0px' })
-    observer.observe(heading)
+    const updateVisibility = () => setPastFirstViewport(window.scrollY > window.innerHeight * 0.9)
+    updateVisibility()
+    window.addEventListener('scroll', updateVisibility, { passive: true })
+    window.addEventListener('resize', updateVisibility)
+    return () => {
+      window.removeEventListener('scroll', updateVisibility)
+      window.removeEventListener('resize', updateVisibility)
+    }
+  }, [])
+
+  useEffect(() => {
+    const footer = document.querySelector('footer')
+    if (!footer || !('IntersectionObserver' in window)) return
+    const observer = new IntersectionObserver(([entry]) => setFooterVisible(entry.isIntersecting))
+    observer.observe(footer)
     return () => observer.disconnect()
   }, [])
 
-  if (!visible) return null
+  if (!pastFirstViewport || footerVisible) return null
 
   const returnToTop = (event: MouseEvent<HTMLButtonElement>) => {
     const heading = document.querySelector<HTMLElement>('main h1')
@@ -24,5 +35,5 @@ export function BackToTop() {
     if (event.detail === 0) heading?.focus({ preventScroll: true })
   }
 
-  return <button className="fixed bottom-4 right-4 z-30 inline-flex min-h-12 items-center gap-2 border border-teal-900/25 bg-ivory px-4 py-3 text-sm font-semibold text-teal-900 shadow-soft hover:bg-sage-100 sm:bottom-6 sm:right-6 lg:static lg:mt-4 lg:w-full lg:justify-center lg:shadow-none" type="button" onClick={returnToTop}><ArrowUp size={18} aria-hidden="true" />Back to top</button>
+  return <button className="fixed bottom-4 right-4 z-40 inline-flex min-h-11 items-center rounded-full border border-teal-900/25 bg-teal-950 px-4 py-2 text-sm font-bold text-white shadow-soft hover:bg-teal-900 sm:bottom-6 sm:right-6" type="button" onClick={returnToTop}>Top</button>
 }
