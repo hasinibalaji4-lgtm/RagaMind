@@ -1,9 +1,8 @@
 export type ExpertCategory =
   | 'Neuroscience and Cognitive Aging'
   | 'Music Therapy'
-  | 'Geriatrics and Healthy Aging'
-  | 'Carnatic Music and Musicology'
-  | 'Senior Living and Community Programs'
+  | 'Carnatic Music'
+  | 'Senior Living and Community Practice'
   | 'Caregivers and Listeners'
 
 export type InterviewStatus =
@@ -65,4 +64,12 @@ export interface Expert {
   references: string[]
   permissions: PublicationPermission
   lastReviewed: string
+}
+
+export interface ExpertPerspective {
+  id: string
+  category: string
+  whyItMatters: string
+  status: InterviewStatus
+  relatedExpertIds: string[]
 }

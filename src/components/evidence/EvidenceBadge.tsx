@@ -1,14 +1,8 @@
-import { CheckCircle2, CircleDashed, CircleDot, ShieldQuestion } from 'lucide-react'
-import type { EvidenceLevel } from '../../types/evidence'
+import { BookOpenCheck, CircleDashed, CircleDot, Library } from 'lucide-react'
 
-const iconForLevel = (level: EvidenceLevel) => {
-  if (level === 'Strong' || level.startsWith('Strong ')) return CheckCircle2
-  if (level === 'Moderate' || level === 'Moderate to Strong') return CircleDot
-  if (level.startsWith('Emerging')) return CircleDashed
-  return ShieldQuestion
-}
+export type EvidenceDisplayLabel = 'Stronger evidence' | 'Emerging evidence' | 'Background context' | 'Most consistent evidence' | 'Promising evidence' | 'Mixed evidence'
 
-export function EvidenceBadge({ level }: { level: EvidenceLevel }) {
-  const Icon = iconForLevel(level)
-  return <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-teal-900/20 bg-ivory px-3 py-1.5 text-xs font-bold text-teal-900"><Icon size={15} aria-hidden="true" /><span>{level}</span></span>
+export function EvidenceBadge({ label }: { label: EvidenceDisplayLabel }) {
+  const Icon = label === 'Stronger evidence' || label === 'Most consistent evidence' ? BookOpenCheck : label === 'Emerging evidence' ? CircleDashed : label === 'Background context' ? Library : CircleDot
+  return <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-teal-900/20 bg-ivory px-3 py-1.5 text-sm font-bold text-teal-900"><Icon aria-hidden="true" size={16} /><span>{label}</span></span>
 }
