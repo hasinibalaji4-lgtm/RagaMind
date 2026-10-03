@@ -8,7 +8,6 @@ import { EvidencePreview } from '../components/home/EvidencePreview'
 import { EditorialPrincipleCard } from '../components/home/EditorialPrincipleCard'
 import { FeatureCard } from '../components/home/FeatureCard'
 import { JourneyTimeline } from '../components/home/JourneyTimeline'
-import { HomepageHeroGraphic } from '../components/home/HomepageHeroGraphic'
 
 const primaryButton = 'inline-flex items-center justify-center gap-2 rounded-full bg-teal-900 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-800'
 const secondaryButton = 'inline-flex items-center justify-center gap-2 rounded-full border border-teal-900 px-6 py-3 font-semibold text-teal-900 transition-colors hover:bg-sage-100'
@@ -57,8 +56,7 @@ export function Home() {
     <PageMeta title="Where Ancient Music Meets Modern Neuroscience" description="RagaMind is an evidence-informed educational initiative exploring Carnatic music, neuroscience, brain health, and healthy aging." />
     <section className="overflow-hidden border-b border-teal-900/10 py-16 sm:py-24 lg:py-28">
       <PageContainer>
-        <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
-        <div>
+        <div className="max-w-4xl">
           <p className="text-sm font-bold uppercase tracking-[.22em] text-gold-700">Where Ancient Music Meets Modern Neuroscience</p>
           <h1 className="mt-6 font-display text-6xl font-bold leading-[.95] tracking-tight text-teal-950 sm:text-7xl lg:text-8xl" tabIndex={-1}>RagaMind</h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-teal-800 sm:text-xl">An evidence-informed educational initiative exploring how Carnatic music, neuroscience, expert insight, and community engagement can support conversations about brain health and healthy aging.</p>
@@ -66,8 +64,6 @@ export function Home() {
             <Link className={primaryButton} to="/evidence">Explore the Evidence <ArrowRight size={18} aria-hidden="true" /></Link>
             <Link className={secondaryButton} to="/experts">Meet the Experts</Link>
           </div>
-        </div>
-        <HomepageHeroGraphic />
         </div>
         <div className="mt-12 grid gap-4 md:grid-cols-3">{homePillars.map((pillar) => <EditorialInfoCard key={pillar.title} {...pillar} />)}</div>
       </PageContainer>
