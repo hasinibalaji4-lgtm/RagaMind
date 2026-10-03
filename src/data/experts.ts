@@ -1,38 +1,8 @@
 import type { Expert, ExpertPerspective } from '../types/expert'
 
-const createPlaceholderExpert = (id: string, slug: string, name: string): Expert => ({
-  id,
-  slug,
-  name,
-  title: '[APPROVED TITLE NEEDED]',
-  institution: '[APPROVED INSTITUTION NEEDED]',
-  biography: '[BIOGRAPHY AWAITING VERIFICATION]',
-  headshotAlt: `[APPROVED HEADSHOT AND DESCRIPTIVE ALT TEXT NEEDED FOR ${name}]`,
-  interview: {
-    date: '[INTERVIEW DATE NOT PUBLISHED]',
-    format: '[INTERVIEW FORMAT NOT PUBLISHED]',
-    status: 'Confirmed',
-    keyThemes: [],
-    summary: '[INTERVIEW SUMMARY COMING SOON AFTER REVIEW AND APPROVAL]',
-    approvedQuotes: [],
-    transcriptSections: [],
-  },
-  whyPerspectiveMatters: '[APPROVED EXPLANATION NEEDED]',
-  approvedInsights: [],
-  questionsRemaining: [],
-  relatedEvidenceTopics: [{ label: '[RELATED EVIDENCE HUB TOPIC MAPPING NEEDED]', route: '/evidence', status: 'awaiting-topic-mapping' }],
-  references: ['[VERIFIED RELATED RESOURCE NEEDED]'],
-  permissions: {
-    biography: 'awaiting-verification', quotations: 'awaiting-approval',
-    headshot: 'awaiting-permission', transcript: 'not-published',
-  },
-  lastReviewed: '[REVIEW DATE NEEDED]',
-})
-
-export const experts: Expert[] = [
-  createPlaceholderExpert('expert-1', 'amy-rodriguez', 'Dr. Amy Rodriguez'),
-  createPlaceholderExpert('expert-2', 'kayci-vickers', 'Dr. Kayci Vickers'),
-]
+// Add an expert only after their public name, profile details, and publication
+// permissions have been verified. This keeps unpublished interview work private.
+export const experts: Expert[] = []
 
 export const expertPerspectives: ExpertPerspective[] = [
   { id: 'neuroscience-aging', category: 'Neuroscience and Cognitive Aging', whyItMatters: 'Helps place questions about music, cognition, and aging within appropriate scientific limits.', status: 'Seeking perspective', relatedExpertIds: [] },

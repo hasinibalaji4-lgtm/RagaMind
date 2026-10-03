@@ -3,7 +3,10 @@ import { PageContainer } from '../components/PageContainer'
 import { PageContentsLayout } from '../components/PageContentsLayout'
 import { PageMeta } from '../components/PageMeta'
 import { SectionHeading } from '../components/SectionHeading'
+import { ExpertInsightCallout } from '../components/shared/ExpertInsightCallout'
+import { expertInsights } from '../data/expertInsights'
 import { RagaCard } from '../components/raga/RagaCard'
+import { HowRagaMoves } from '../components/raga/HowRagaMoves'
 import { ragas } from '../data/ragas'
 
 const pageContents = [
@@ -33,7 +36,8 @@ export function Ragas() {
   return <>
     <PageMeta title="Raga Library" description="Explore five Carnatic ragas through traditional associations, teacher insight, scientific context, and private reflection." />
     <header className="border-b border-teal-900/10 py-16 sm:py-24">
-      <PageContainer>
+      <PageContainer className="grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
+        <div>
         <p className="text-sm font-bold uppercase tracking-[.2em] text-gold-700">Tradition, context, and listening</p>
         <h1 className="mt-5 scroll-mt-28 font-display text-5xl font-bold sm:text-7xl lg:scroll-mt-52" id="raga-library-overview" tabIndex={-1}>Raga Library</h1>
         <p className="mt-7 max-w-4xl text-xl leading-8 text-teal-800">Five Carnatic ragas exploring rest, renewal, joy, compassion, and strength.</p>
@@ -41,6 +45,10 @@ export function Ragas() {
           <p>Ragas are melodic frameworks within Carnatic music. Their emotional associations can arise through tradition, musical structure, performance, context, and each listener’s experience.</p>
           <p>These five ragas were selected with teacher guidance. Individual responses vary, and this educational library is not a therapeutic prescription.</p>
         </div>
+        </div>
+        <HowRagaMoves />
+      </PageContainer>
+      <PageContainer>
         <section className="mt-12" aria-labelledby="context-types-title">
           <h2 className="font-display text-2xl font-bold" id="context-types-title">How perspectives are distinguished</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-teal-700">These categories provide different kinds of context and should not be treated as equivalent forms of evidence.</p>
@@ -61,6 +69,7 @@ export function Ragas() {
         <PageContainer>
           <SectionHeading id="how-to-listen" title="How to Listen" subtitle="Listening here is optional, non-clinical, and reflective. There is no correct emotional response." />
           <ol className="mt-10 grid gap-px border border-teal-900/15 bg-teal-900/15 sm:grid-cols-2 lg:grid-cols-4">{listeningGuidance.map((item, index) => <li className="min-h-40 bg-ivory p-6" key={item}><span className="font-display text-xl font-bold text-gold-700">0{index + 1}</span><p className="mt-6 leading-7 text-teal-800">{item}</p></li>)}</ol>
+          <ExpertInsightCallout className="mt-10" insight={expertInsights['choosing-music']} />
         </PageContainer>
       </section>
 
@@ -75,7 +84,7 @@ export function Ragas() {
         <PageContainer>
           <SectionHeading id="library-scientific-context" title="Scientific Context" />
           <p className="mt-7 max-w-4xl text-lg leading-8 text-teal-800">Research on music more broadly suggests that familiarity, personalization, attention, active participation, and emotional meaning can shape the listening experience. Current evidence does not establish that a specific raga produces a particular clinical outcome.</p>
-          <p className="mt-6 text-teal-700">[VERIFIED EVIDENCE HUB CITATIONS NEEDED]</p>
+          <p className="mt-6 text-teal-700">The Evidence Hub provides the source library and limitations behind this broader research context.</p>
         </PageContainer>
       </section>
 

@@ -9,6 +9,6 @@ export function RagaVisual({ name, index = 0 }: { name: string; index?: number }
     <div className={`absolute rounded-full bg-teal-900/90 ${positions[index % positions.length]}`} />
     <div className="absolute bottom-[12%] right-[16%] h-16 w-16 rounded-full border-2 border-gold-700 bg-ivory" />
     <svg className="absolute inset-0 h-full w-full text-gold-700/60" viewBox="0 0 400 300" fill="none"><path d="M28 184c69-86 105 61 168-28s111-71 176 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
-    <span className="sr-only">Decorative placeholder for {name}</span>
+    <span className="sr-only">Decorative abstract artwork for {name}</span>
   </div>
 }

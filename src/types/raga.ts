@@ -47,8 +47,8 @@ export interface Raga {
   listeningGuidance: string[]
   reflectionPrompts: string[]
   audio: AudioRecording
-  expertInsight: RagaExpertInsight
+  expertInsight?: RagaExpertInsight
   references: RagaReference[]
-  lastReviewed: string
+  lastReviewed?: string
   imageStatus: 'awaiting-approved-visual'
 }

@@ -4,16 +4,37 @@
 
 @layer base {
   :root {
-    --color-teal-950: 9 47 48;
-    --color-teal-900: 18 63 63;
-    --color-teal-800: 24 87 86;
-    --color-teal-700: 36 109 105;
-    --color-ivory: 251 247 237;
-    --color-gold: 179 138 62;
-    --color-gold-700: 138 101 29;
-    --color-sage-100: 232 238 230;
-    --color-sage-300: 185 201 180;
-    --color-sage-700: 80 106 81;
+    /* RagaMind's warm, editorial color system. */
+    --color-burgundy: 100 29 42;
+    --color-wine: 133 35 50;
+    --color-gold: 196 155 74;
+    --color-cream: 243 223 195;
+    --color-ivory: 255 253 248;
+    --color-ink: 48 38 43;
+    --color-text-secondary: 91 72 79;
+    --color-surface-burgundy-soft: 247 235 235;
+    --color-surface-gold-soft: 249 242 225;
+    --color-surface-cream: 250 239 223;
+    --color-border-warm: 214 190 158;
+    --surface-rose-soft: rgb(var(--color-surface-burgundy-soft));
+    --surface-cream: rgb(var(--color-surface-cream));
+    --border-warm: rgb(var(--color-border-warm));
+    --text-primary: rgb(var(--color-ink));
+
+    /* Compatibility aliases keep established components on the centralized system. */
+    --color-teal-950: var(--color-ink);
+    --color-teal-900: var(--color-burgundy);
+    --color-teal-800: var(--color-text-secondary);
+    --color-teal-700: 105 76 84;
+    --color-gold-700: 117 75 15;
+    --color-sage-100: var(--color-surface-cream);
+    --color-sage-300: var(--color-cream);
+    --color-sage-700: var(--color-wine);
+    --color-mauve: var(--color-wine);
+    --color-pink: var(--color-surface-burgundy-soft);
+    --color-rose: 220 183 177;
+    --color-peach: 235 207 164;
+    --color-yellow: var(--color-surface-gold-soft);
   }
   body { @apply bg-ivory font-sans text-teal-950 antialiased; }
   :focus-visible { @apply outline-none ring-4 ring-teal-700 ring-offset-2 ring-offset-ivory; }
@@ -26,4 +47,32 @@
     text-underline-offset: 0.18em;
   }
 }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+@layer components {
+  .evidence-section-nav {
+    @apply border-b border-burgundy/10 py-16 sm:py-20;
+  }
+  .section-heading { @apply max-w-3xl; }
+  .section-heading .eyebrow { @apply text-sm font-bold uppercase tracking-[.22em] text-gold-700; }
+  .section-heading h2 { @apply mt-4 font-display text-3xl font-bold text-burgundy sm:text-4xl; }
+  .section-heading > p:last-child { @apply mt-4 text-lg leading-8 text-text-secondary; }
+  .evidence-section-nav-grid {
+    @apply mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3;
+  }
+  .evidence-nav-card {
+    @apply flex h-full min-h-[210px] gap-4 rounded-3xl border border-border-warm bg-surface-cream p-6 text-ink no-underline transition-[transform,box-shadow,border-color];
+  }
+  .evidence-section-nav-grid li:nth-child(odd) .evidence-nav-card { background: var(--surface-rose-soft); }
+  .evidence-nav-card:hover { @apply -translate-y-[3px] border-burgundy shadow-[0_10px_24px_rgba(60,30,35,.08)]; }
+  .evidence-nav-card:focus-visible { @apply outline outline-[3px] outline-offset-4 outline-burgundy ring-0; }
+  .evidence-nav-card__icon { @apply grid h-14 w-14 shrink-0 place-items-center rounded-full bg-surface-gold text-burgundy; }
+  .evidence-nav-card__content { @apply flex min-w-0 flex-1 flex-col; }
+  .evidence-nav-card h3 { @apply font-display text-2xl font-bold leading-tight text-burgundy; }
+  .evidence-nav-card p { @apply mt-3 leading-7 text-text-secondary; }
+  .evidence-nav-card__link { @apply mt-auto inline-flex items-center gap-2 pt-5 font-bold text-burgundy; }
+}
+
+@media (max-width: 600px) {
+  .evidence-nav-card { min-height: auto; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; transform: none !important; } }

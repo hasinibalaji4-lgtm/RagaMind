@@ -19,7 +19,7 @@ export function RagaProfile({ raga, index }: { raga: Raga; index: number }) {
           <p className="mt-6 max-w-3xl text-xl leading-8 text-teal-800">{raga.shortDescription}</p>
           <p className="mt-6 max-w-3xl border-l-2 border-gold-700 pl-4 text-sm leading-6 text-teal-700">{raga.limitations}</p>
         </div>
-        <div><RagaVisual name={raga.name} index={index} /><p className="mt-2 text-sm text-teal-700">[APPROVED PROFILE VISUAL NEEDED]</p></div>
+        <RagaVisual name={raga.name} index={index} />
       </PageContainer>
     </header>
 
@@ -40,7 +40,7 @@ export function RagaProfile({ raga, index }: { raga: Raga; index: number }) {
           <SectionHeading id="profile-scientific-context" title="Scientific Context" />
           <p className="mt-7 max-w-4xl text-lg leading-8 text-teal-800">{raga.scientificContext}</p>
           <div className="mt-8 max-w-4xl border-l-2 border-gold-700 pl-4"><h3 className="font-bold">Important limitations</h3><p className="mt-2 leading-7 text-teal-700">{raga.limitations}</p></div>
-          <p className="mt-8 text-teal-700">[VERIFIED EVIDENCE HUB CITATIONS NEEDED]</p>
+          <p className="mt-8 text-teal-700">Review the Evidence Hub for the broader sources, evidence labels, and limitations used by RagaMind.</p>
           <Link className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-teal-900 underline decoration-gold-700 underline-offset-4" to="/evidence">Explore broader research context <ArrowRight size={17} aria-hidden="true" /></Link>
         </PageContainer>
       </section>
@@ -66,8 +66,8 @@ export function RagaProfile({ raga, index }: { raga: Raga; index: number }) {
         <PageContainer>
           <SectionHeading id="profile-transparency" title="Transparency and Review" />
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
-            <article><h3 className="font-display text-2xl font-bold">Expert perspective</h3><blockquote className="mt-5 border-l-2 border-gold-700 pl-4 italic text-teal-700">“{raga.expertInsight.quotation}”</blockquote><p className="mt-4 text-sm text-teal-700">{raga.expertInsight.expert} · {raga.expertInsight.approvalStatus}</p></article>
-            <article><h3 className="font-display text-2xl font-bold">References and review</h3><ul className="mt-5 space-y-3">{raga.references.map((reference, referenceIndex) => <li className="text-teal-700" key={referenceIndex}>{reference.citation} · {reference.verificationStatus}</li>)}</ul><p className="mt-5"><strong>Last reviewed:</strong> {raga.lastReviewed}</p></article>
+            <article><h3 className="font-display text-2xl font-bold">Expert perspective</h3><p className="mt-5 leading-7 text-teal-700">This section will grow when an expert perspective has been reviewed and approved for publication. No quotation is displayed before permission is confirmed.</p></article>
+            <article><h3 className="font-display text-2xl font-bold">References and review</h3><p className="mt-5 leading-7 text-teal-700">Raga-specific references and review dates will be published after source and teacher review. Broader scientific sources remain available in the Evidence Hub.</p></article>
           </div>
           <aside className="mt-12 border border-teal-900/20 bg-sage-100/65 p-6 sm:p-8"><h3 className="font-display text-2xl font-bold">Educational disclaimer</h3><p className="mt-4 max-w-4xl leading-7 text-teal-800">RagaMind presents traditional musical perspectives, teacher-informed commentary, and general research context for educational purposes. Individual responses to music vary. This resource is not medical advice, diagnosis, or treatment.</p></aside>
         </PageContainer>

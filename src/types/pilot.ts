@@ -1,8 +1,8 @@
-export type PilotStatus = 'Complete' | 'In Progress' | 'Planned' | 'Future'
+export type PilotRoadmapStatus = 'Completed' | 'In progress' | 'Next'
 
-export interface PilotPhase {
+export interface PilotRoadmapGroup {
   id: string
   title: string
-  status: PilotStatus
-  description: string
+  status: PilotRoadmapStatus
+  items: string[]
 }

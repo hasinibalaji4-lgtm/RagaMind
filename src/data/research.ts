@@ -44,16 +44,16 @@ export const researchSources: ResearchSource[] = [
   },
   {
     id: 'cheng-2020', category: 'Music Therapy & Dementia', year: '2020', evidenceLevel: 'Meta-analysis', evidenceLabel: 'Stronger evidence',
-    citation: 'Cheng, S.-T., et al. (2020). Music therapy in the treatment of dementia: A systematic review and meta-analysis.',
+    citation: 'Moreno-Morales, C., Calero, R., Moreno-Morales, P., & Pintado, C. (2020). Music therapy in the treatment of dementia: A systematic review and meta-analysis.',
     url: 'https://pubmed.ncbi.nlm.nih.gov/32509790/',
-    summary: 'This review evaluates whether music therapy improves behavioral, psychological, and cognitive outcomes in dementia. It reports that music-based interventions can reduce some behavioral symptoms and may improve emotional outcomes. It is useful for distinguishing structured music therapy from passive listening.',
-    keyFinding: 'Music therapy is associated with improvements in behavioral and psychological symptoms of dementia.',
-    limitations: ['Intervention types differed.', 'Dosage and session frequency varied.', 'Studies used different outcome scales.', 'These differences reduce precision.'],
-    relevance: 'Supports the idea that structured music interventions may help with symptom management.',
+    summary: 'This review evaluates cognitive function, quality of life, and depression outcomes in dementia. Its meta-analysis reported improvements in cognition, post-intervention quality of life, and long-term depression, while finding no evidence of improvement in long-term quality of life or short-term depression.',
+    keyFinding: 'The included studies reported benefits for some outcomes and time points, but not consistently across every measure.',
+    limitations: ['Only eight studies were included.', 'Intervention types differed.', 'Studies used different outcome scales.', 'The authors called for standardized protocols and further clinical trials.'],
+    relevance: 'Shows why outcomes and follow-up periods should be reported separately rather than summarized as one overall treatment effect.',
   },
   {
     id: 'song-2023', category: 'Music Therapy & Dementia', year: '2023', evidenceLevel: 'Randomized Controlled Trial Review', evidenceLabel: 'Stronger evidence',
-    citation: 'Song, J. A., et al. (2023). The effect of music therapy on cognitive functions in patients with Alzheimer’s disease: A systematic review of randomized controlled trials.',
+    citation: 'Bleibel, M., El Cheikh, A., Sadier, N. S., & Abou-Abbas, L. (2023). The effect of music therapy on cognitive functions in patients with Alzheimer’s disease: A systematic review of randomized controlled trials.',
     url: 'https://pubmed.ncbi.nlm.nih.gov/36973733/',
     summary: 'This review focuses on randomized trials involving people with Alzheimer’s disease. It reports evidence of cognitive improvement, with stronger effects in studies involving active musical participation. It is especially useful because it separates Alzheimer’s disease from broader dementia populations and highlights the importance of intervention design.',
     keyFinding: 'Active participation in music may be more beneficial for cognition than passive listening.',
@@ -62,7 +62,7 @@ export const researchSources: ResearchSource[] = [
   },
   {
     id: 'li-2025', category: 'Music Therapy & Dementia', year: '2025', evidenceLevel: 'Meta-analysis', evidenceLabel: 'Stronger evidence',
-    citation: 'Li, H.-C., et al. (2025). Effectiveness of music therapy in dementia: A systematic review and meta-analysis of randomized controlled trials.',
+    citation: 'Lu, L.-C., Lan, S.-H., Lan, S.-J., & Hsieh, Y.-P. (2025). Effectiveness of the music therapy in dementia: A systematic review and meta-analysis of randomized controlled trials.',
     url: 'https://karger.com/dem/article/54/3/167/915984/Effectiveness-of-the-Music-Therapy-in-Dementia-A',
     summary: 'This meta-analysis examines randomized trials across outcomes including cognition, depression, anxiety, behavior, and quality of life. It reports better cognition and lower depression and anxiety in music therapy groups. It also explores duration and frequency, making it useful for thinking about intervention design.',
     keyFinding: 'Benefits appeared strongest in programs lasting at least twelve weeks, with at least sixteen sessions and approximately eight total hours.',
@@ -80,7 +80,7 @@ export const researchSources: ResearchSource[] = [
   },
   {
     id: 'koelsch-2018', category: 'Music & Neuroscience', year: '2018', evidenceLevel: 'Narrative Review', evidenceLabel: 'Background context',
-    citation: 'Koelsch, S. (2018). The neuroscience of music: A review and summary.',
+    citation: 'Wang, S., & Agius, M. (2018). The neuroscience of music: A review and summary.',
     url: 'https://pubmed.ncbi.nlm.nih.gov/30439853/',
     summary: 'This review explains that music perception and performance rely on coordinated activity across multiple brain systems rather than one single music center. It highlights neural plasticity and the involvement of both hemispheres. It provides a broad biological explanation for why music can influence attention, memory, movement, and emotion.',
     keyFinding: 'Music engages distributed and plastic neural systems across the brain.',
@@ -98,7 +98,7 @@ export const researchSources: ResearchSource[] = [
   },
   {
     id: 'bello-2022', category: 'Music & Neuroscience', year: '2022', evidenceLevel: 'Narrative Review', evidenceLabel: 'Background context',
-    citation: 'Bello, M., et al. (2022). Music in the brain.',
+    citation: 'Vuust, P., Heggli, O. A., Friston, K. J., & Kringelbach, M. L. (2022). Music in the brain.',
     url: 'https://www.nature.com/articles/s41583-022-00578-5',
     summary: 'This review presents a modern account of music perception, action, emotion, and learning. It emphasizes predictive coding, meaning that the brain continually forms expectations about what may happen next in music.',
     keyFinding: 'Prediction and expectation help shape music’s emotional and cognitive effects.',
@@ -107,7 +107,7 @@ export const researchSources: ResearchSource[] = [
   },
   {
     id: 'altenmuller-schlaug-2015', category: 'Music & Neuroscience', year: '2015', evidenceLevel: 'Narrative Review', evidenceLabel: 'Background context',
-    citation: 'Altenmüller, E., & Schlaug, G. (2015). Apollo’s gift: Music and brain plasticity.',
+    citation: 'Altenmüller, E., & Schlaug, G. (2015). Apollo’s gift: New aspects of neurologic music therapy.',
     url: 'https://www.sciencedirect.com/science/article/pii/S0079612314000302',
     summary: 'This brief review discusses how musical activity can shape and stimulate brain circuits. It connects music, creativity, plasticity, and rehabilitation in an accessible way.',
     keyFinding: 'Musical activity can engage and stimulate specific brain circuits.',
@@ -143,7 +143,7 @@ export const researchSources: ResearchSource[] = [
   },
   {
     id: 'ramakrishnan-2016', category: 'Carnatic Music & Musicology', year: '2016', evidenceLevel: 'Emerging Research', evidenceLabel: 'Emerging evidence',
-    citation: 'Ramakrishnan, R. (2016). Analysis of emotions due to various aspects of Carnatic and world music.',
+    citation: 'Balasubramanian, S. V. (2016). Analysis of emotions due to various aspects of Carnatic and world music.',
     url: 'https://vixra.org/mind/1601',
     summary: 'This dissertation-style source explores emotional responses to Carnatic ragas and musical features. It considers how swaras, tempo, octave, and other musical characteristics may contribute to emotional experience.',
     keyFinding: 'Musical features may be analyzed as part of an emotional profile.',
@@ -152,7 +152,7 @@ export const researchSources: ResearchSource[] = [
   },
   {
     id: 'sankar-2024', category: 'Carnatic Music & Musicology', year: '2024', evidenceLevel: 'Observational Study', evidenceLabel: 'Emerging evidence',
-    citation: 'Sankar, P., et al. (2024). Music and the aging brain: Exploring the role of long-term Carnatic musical activity.',
+    citation: 'Ghosh, A., Singh, S., Monisha, S., Jagtap, T., & Issac, T. G. (2024). Music and the aging brain: Exploring the role of long-term Carnatic music training on cognition and gray matter volumes.',
     url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11090532/',
     summary: 'This study examines older adults with long-term Carnatic musical activity and their cognitive functioning. It is relevant because it connects Carnatic music specifically with aging rather than studying music only in general.',
     keyFinding: 'Long-term Carnatic musical engagement may be associated with differences in cognitive functioning during aging.',
